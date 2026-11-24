@@ -1,0 +1,107 @@
+# TAXI BLUES — бесплатная панель управления Pages CMS
+# https://app.pagescms.org/
+media:
+  - name: images
+    label: Фотографии и обложки
+    input: assets/uploads/images
+    output: /assets/uploads/images
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+  - name: audio
+    label: Музыкальные MP3
+    input: assets/uploads/audio
+    output: /assets/uploads/audio
+    extensions: [mp3, m4a, ogg]
+    rename: safe
+content:
+  - name: albums
+    label: Альбомы
+    type: file
+    path: content/albums.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Название, type: string, required: true }
+      - { name: description, label: Описание альбома, type: text }
+      - name: cover
+        label: Обложка
+        type: image
+        options: { media: images }
+      - { name: listen_url, label: Ссылка на площадки, type: string }
+      - { name: order, label: Порядок, type: number }
+      - { name: published, label: Опубликовано, type: boolean }
+  - name: tracks
+    label: Музыка / песни
+    type: file
+    path: content/tracks.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Песня, type: string, required: true }
+      - { name: album, label: Альбом, type: string }
+      - name: audio
+        label: MP3 / M4A / OGG
+        type: file
+        options: { media: audio }
+      - name: cover
+        label: Обложка трека
+        type: image
+        options: { media: images }
+      - { name: order, label: Порядок, type: number }
+      - { name: published, label: Опубликовано, type: boolean }
+  - name: photos
+    label: Фотогалерея
+    type: file
+    path: content/photos.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Подпись, type: string }
+      - name: image
+        label: Фото
+        type: image
+        options: { media: images }
+      - { name: category, label: Фотоальбом / категория, type: string }
+      - { name: order, label: Порядок, type: number }
+      - { name: published, label: Опубликовано, type: boolean }
+  - name: videos
+    label: Видеоклипы
+    type: file
+    path: content/videos.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Название, type: string, required: true }
+      - { name: youtube_url, label: YouTube URL, type: string, required: true }
+      - { name: description, label: Описание, type: text }
+      - { name: order, label: Порядок, type: number }
+      - { name: published, label: Опубликовано, type: boolean }
+  - name: news
+    label: Новости
+    type: file
+    path: content/news.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Заголовок, type: string }
+      - { name: date, label: Дата, type: date }
+      - { name: text, label: Текст, type: text }
+      - name: image
+        label: Иллюстрация
+        type: image
+        options: { media: images }
+      - { name: published, label: Опубликовано, type: boolean }
+  - name: members
+    label: Музыканты
+    type: file
+    path: content/members.json
+    format: json
+    list: true
+    fields:
+      - { name: name, label: Имя фамилия, type: string, required: true }
+      - { name: instrument, label: Инструмент, type: string }
+      - name: image
+        label: Фото
+        type: image
+        options: { media: images }
+      - { name: order, label: Порядок, type: number }
