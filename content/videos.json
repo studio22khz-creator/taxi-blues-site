@@ -5,5 +5,12 @@
     "description": "Официальный клип TAXI BLUES",
     "order": 1,
     "published": true
+  },
+  {
+    "title": "Весенняя пора",
+    "youtube_url": "https://www.youtube.com/watch?v=2kS7PkFVBFg",
+    "description": "Клип TAXI BLUES",
+    "order": 2,
+    "published": true
   }
 ]
