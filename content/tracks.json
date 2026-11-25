@@ -2,7 +2,7 @@
   {
     "title": "Так будет лучше",
     "album": "Овцы Христа",
-    "audio": "assets/audio/01Taxi Blues-Так будет лучше .mp3",
+    "audio": "assets/audio/01-tak-budet-luchshe.mp3",
     "cover": "",
     "order": 1,
     "published": true
@@ -10,7 +10,7 @@
   {
     "title": "Овцы Христа",
     "album": "Овцы Христа",
-    "audio": "assets/audio/02 Taxi Blues - Овцы Христа.mp3",
+    "audio": "assets/audio/02-ovtsy-khrista.mp3",
     "cover": "",
     "order": 2,
     "published": true
@@ -18,7 +18,7 @@
   {
     "title": "Дом",
     "album": "Овцы Христа",
-    "audio": "assets/audio/03 Taxi Blues -Дом.mp3",
+    "audio": "assets/audio/03-dom.mp3",
     "cover": "",
     "order": 3,
     "published": true
@@ -26,7 +26,7 @@
   {
     "title": "Это не я",
     "album": "Овцы Христа",
-    "audio": "assets/audio/04 Taxi Blues - Это не я.mp3",
+    "audio": "assets/audio/04-eto-ne-ya.mp3",
     "cover": "",
     "order": 4,
     "published": true
@@ -34,7 +34,7 @@
   {
     "title": "Весна",
     "album": "Овцы Христа",
-    "audio": "assets/audio/05 Taxi blues-Весна.mp3",
+    "audio": "assets/audio/05-vesna.mp3",
     "cover": "",
     "order": 5,
     "published": true
@@ -42,7 +42,7 @@
   {
     "title": "Потеренная в толпе",
     "album": "Овцы Христа",
-    "audio": "assets/audio/06 Taxi Blues-Потеренная в толпе.mp3",
+    "audio": "assets/audio/06-poteryannaya-v-tolpe.mp3",
     "cover": "",
     "order": 6,
     "published": true
@@ -50,7 +50,7 @@
   {
     "title": "Взрослая",
     "album": "Овцы Христа",
-    "audio": "assets/audio/07 Taxi blues-Взрослая.mp3",
+    "audio": "assets/audio/07-vzroslaya.mp3",
     "cover": "",
     "order": 7,
     "published": true
@@ -58,7 +58,7 @@
   {
     "title": "Весенняя пора",
     "album": "Овцы Христа",
-    "audio": "assets/audio/08 Taxi blues-Весенняя пора.mp3",
+    "audio": "assets/audio/08-vesennyaya-pora.mp3",
     "cover": "",
     "order": 8,
     "published": true
@@ -66,7 +66,7 @@
   {
     "title": "Все равно",
     "album": "Овцы Христа",
-    "audio": "assets/audio/09 Taxi blues-Все равно.mp3",
+    "audio": "assets/audio/09-vse-ravno.mp3",
     "cover": "",
     "order": 9,
     "published": true
@@ -74,7 +74,7 @@
   {
     "title": "Черная пленка",
     "album": "Овцы Христа",
-    "audio": "assets/audio/10. Taxi Blues - Черная пленка.mp3",
+    "audio": "assets/audio/10-chernaya-plenka.mp3",
     "cover": "",
     "order": 10,
     "published": true
@@ -82,7 +82,7 @@
   {
     "title": "Шизоид",
     "album": "Овцы Христа",
-    "audio": "assets/audio/11.Taxi Blues -Шизоид.mp3",
+    "audio": "assets/audio/11-shizoid.mp3",
     "cover": "",
     "order": 11,
     "published": true
@@ -90,7 +90,7 @@
   {
     "title": "Футзияма (bonus track)",
     "album": "Овцы Христа",
-    "audio": "assets/audio/12.Taxi Blues -Футзияма(bonus track).mp3",
+    "audio": "assets/audio/12-fudziyama-bonus.mp3",
     "cover": "",
     "order": 12,
     "published": true
