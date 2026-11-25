@@ -25,3 +25,7 @@
 .video-more-link{display:inline-flex;flex-direction:column;margin:18px 18px 0 0;padding:18px;border:1px solid #815c45;min-width:220px}.video-more-link strong{font:600 20px Oswald}.video-more-link span{font-size:12px;color:#d5bcaa}
 .news-posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px}.news-post{border:1px solid #7e6a5180;padding:22px;background:#0b221d}.news-post img{max-height:200px;width:100%;object-fit:cover}.news-post h3{font-size:26px}.news-post p{white-space:pre-line}
 @media(max-width:768px){.album-description{padding-left:16px}.album-description p{font-size:15px}}
+/* Album playlist navigation */
+.playlist-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:10px 0 16px}
+.playlist-actions .track-play{font-weight:600;border-bottom:1px solid #b44530;padding:8px 0}
+.track-play[aria-pressed="true"]{color:#f4a28b;font-weight:700}
