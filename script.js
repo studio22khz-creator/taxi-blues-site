@@ -110,20 +110,53 @@
   const audio=document.getElementById('musicAudio');
   const tracksList=document.getElementById('tracksList');
   const nowPlaying=document.getElementById('nowPlaying');
-  // Help listeners distinguish an unavailable file from a browser play restriction.
+  let slowLoadTimer=0;
+  const clearSlowLoadTimer=()=>{
+    if(slowLoadTimer){window.clearTimeout(slowLoadTimer);slowLoadTimer=0}
+  };
+  const addDirectAudioLink=(src,label)=>{
+    if(!safeMedia(src))return;
+    const link=document.createElement('a');
+    link.href=src;link.target='_blank';link.rel='noopener noreferrer';
+    link.textContent=label;
+    nowPlaying.append(link);
+  };
+  const watchSlowLoad=()=>{
+    clearSlowLoadTimer();
+    const src=audio.getAttribute('src');
+    const title=audio.dataset.track||'Песня TAXI BLUES';
+    slowLoadTimer=window.setTimeout(()=>{
+      slowLoadTimer=0;
+      if(audio.error||audio.paused||audio.ended||audio.getAttribute('src')!==src||audio.readyState>=HTMLMediaElement.HAVE_FUTURE_DATA)return;
+      nowPlaying.replaceChildren();
+      putText(nowPlaying,'span','Загрузка «'+title+'» задерживается. ');
+      addDirectAudioLink(src,'Открыть MP3 отдельно ↗');
+    },8000);
+  };
   const showAudioError=()=>{
+    clearSlowLoadTimer();
     const title=audio.dataset.track||'Песня TAXI BLUES';
     const path=audio.getAttribute('src')||'';
     nowPlaying.replaceChildren();
     putText(nowPlaying,'span','Не удалось загрузить «'+title+'». ');
-    if(safeMedia(path)){
-      const link=document.createElement('a');
-      link.href=path;link.target='_blank';link.rel='noopener noreferrer';
-      link.textContent='Проверить MP3 ↗';
-      nowPlaying.append(link);
-    }
+    addDirectAudioLink(path,'Проверить MP3 ↗');
   };
   audio.addEventListener('error',showAudioError);
+  audio.addEventListener('waiting',()=>{
+    if(audio.error||audio.paused)return;
+    nowPlaying.textContent='Буферизация: '+(audio.dataset.track||'TAXI BLUES')+'…';
+    watchSlowLoad();
+  });
+  audio.addEventListener('stalled',()=>{
+    if(audio.error||audio.paused)return;
+    nowPlaying.textContent='Ожидаем данные для «'+(audio.dataset.track||'TAXI BLUES')+'»…';
+    watchSlowLoad();
+  });
+  audio.addEventListener('playing',()=>{
+    clearSlowLoadTimer();
+    nowPlaying.textContent='Сейчас играет: '+(audio.dataset.track||'TAXI BLUES');
+  });
+  audio.addEventListener('pause',clearSlowLoadTimer);
   cmsFetch('tracks').then(data=>{
     const tracks=published(data);if(!tracks.length)return;
     document.getElementById('tracksEmpty').hidden=true;
@@ -137,13 +170,20 @@
       const track=playable[index];
       const src=safeMedia(track.audio);
       if(!src)return;
-      if(audio.getAttribute('src')!==src){audio.src=src;audio.load()}
+      const sameTrack=audio.getAttribute('src')===src;
       audio.dataset.track=track.title||'Песня TAXI BLUES';
       audio.hidden=false;
-      nowPlaying.textContent='Сейчас играет: '+audio.dataset.track;
       buttons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.src===src)));
+      if(sameTrack&&!audio.paused)return;
+      // Request the selected MP3 immediately. An extra load() after setting src
+      // can restart the browser's media load and increase start latency.
+      audio.preload='auto';
+      if(!sameTrack)audio.src=src;
+      nowPlaying.textContent='Загружаем: '+audio.dataset.track+'…';
+      watchSlowLoad();
       audio.play().catch(error=>{
         if(error?.name==='AbortError')return;
+        clearSlowLoadTimer();
         if(audio.error)showAudioError();
         else nowPlaying.textContent='Для воспроизведения нажмите Play: '+audio.dataset.track;
       });
