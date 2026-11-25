@@ -102,7 +102,7 @@
         btn.textContent='▶ '+title;
         btn.addEventListener('click',()=>{
           if(audio.getAttribute('src')!==sound){audio.src=sound;audio.load()}
-          audio.hidden=false;nowPlaying.textContent='Сейчас играет: '+title;
+          audio.dataset.track=title;audio.hidden=false;nowPlaying.textContent='Сейчас играет: '+title;
           audio.play().catch(()=>{nowPlaying.textContent='Нажмите Play для воспроизведения: '+title});
         });li.append(btn);
       }else{putText(li,'span',title+' — аудио скоро появится')}
