@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "title": "Так будет лучше",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 1,
+    "published": true
+  },
+  {
+    "title": "Овцы Христа",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 2,
+    "published": true
+  },
+  {
+    "title": "Дом",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 3,
+    "published": true
+  },
+  {
+    "title": "Это не я",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 4,
+    "published": true
+  },
+  {
+    "title": "Весна",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 5,
+    "published": true
+  },
+  {
+    "title": "Потеренная в толпе",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 6,
+    "published": true
+  },
+  {
+    "title": "Взрослая",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 7,
+    "published": true
+  },
+  {
+    "title": "Весенняя пора",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 8,
+    "published": true
+  },
+  {
+    "title": "Все равно",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 9,
+    "published": true
+  },
+  {
+    "title": "Черная пленка",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 10,
+    "published": true
+  },
+  {
+    "title": "Шизоид",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 11,
+    "published": true
+  },
+  {
+    "title": "Футзияма (bonus track)",
+    "album": "Овцы Христа",
+    "audio": "",
+    "cover": "",
+    "order": 12,
+    "published": true
+  }
+]
