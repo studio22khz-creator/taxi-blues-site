@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#071c1b">
   <meta name="description" content="TAXI BLUES — официальный сайт группы. Музыка, альбом «Овцы Христа», клипы, участники и новости.">
   <link rel="canonical" href="https://taxi-blues-site.layero.app/">
+  <script>
+    // Earlier Pages address forwards visitors to the sole public Russian site.
+    if (location.hostname === 'taxi-blues-site.pages.dev') {
+      location.replace('https://taxi-blues-site.layero.app' + location.pathname + location.search + location.hash);
+    }
+  </script>
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:site_name" content="TAXI BLUES">
   <meta property="og:locale" content="ru_RU">
