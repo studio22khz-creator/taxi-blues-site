@@ -76,7 +76,27 @@
     const url=safeExternal(first.listen_url);
     if(url)listen.href=url;
     const cover=safeMedia(first.cover);
-    if(cover)document.querySelector('.album-poster-illustration').style.backgroundImage='url('+JSON.stringify(cover)+')';
+    if(cover){
+      // Display the authentic album artwork only once the file loads.
+      // The approved temporary poster remains visible if the file is not yet on the host.
+      const poster=document.querySelector('.album-poster');
+      if(poster){
+        const img=new Image();
+        img.className='album-cover-image';
+        img.alt='Официальная обложка альбома TAXI BLUES — Овцы Христа';
+        img.onload=()=>{
+          poster.prepend(img);
+          poster.classList.add('has-official-cover');
+          poster.setAttribute('aria-label',img.alt);
+          const dockArt=document.querySelector('.player-art');
+          if(dockArt){
+            dockArt.style.backgroundImage='url('+JSON.stringify(cover)+')';
+            dockArt.classList.add('has-official-cover');
+          }
+        };
+        img.src=cover;
+      }
+    }
     const others=albums.slice(1),target=document.getElementById('moreAlbums');
     others.forEach(a=>{
       const card=document.createElement('div');card.className='album-extra';
