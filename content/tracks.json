@@ -2,7 +2,7 @@
   {
     "title": "Так будет лучше",
     "album": "Овцы Христа",
-    "audio": "",
+    "audio": "assets/audio/01Taxi Blues-Так будет лучше .mp3",
     "cover": "",
     "order": 1,
     "published": true
@@ -10,7 +10,7 @@
   {
     "title": "Овцы Христа",
     "album": "Овцы Христа",
-    "audio": "",
+    "audio": "assets/audio/02 Taxi Blues - Овцы Христа.mp3",
     "cover": "",
     "order": 2,
     "published": true
