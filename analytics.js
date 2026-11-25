@@ -38,12 +38,16 @@
       k.async = 1;
       k.src = r;
       a.parentNode.insertBefore(k, a);
-    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=114676461', 'ym');
     window.ym(counterId, 'init', {
-      clickmap: false,
-      trackLinks: false,
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      ecommerce: 'dataLayer',
+      referrer: document.referrer,
+      url: location.href,
       accurateTrackBounce: true,
-      webvisor: false,
+      trackLinks: true,
       trackHash: true
     });
   }
@@ -68,7 +72,7 @@
   panel.setAttribute('role', 'region');
   panel.setAttribute('aria-label', 'Настройки аналитики');
   panel.hidden = true;
-  panel.innerHTML = '<strong>Статистика TAXI BLUES</strong><p>Можно разрешить Яндекс Метрике собирать сведения о посещении и действиях на сайте, чтобы мы понимали, какие песни и разделы интересны слушателям. <a href="privacy/">Подробнее</a>.</p><div class="tb-privacy-actions"><button type="button" class="tb-allow">Разрешить аналитику</button><button type="button" class="tb-decline">Не разрешать</button></div>';
+  panel.innerHTML = '<strong>Статистика TAXI BLUES</strong><p>Можно разрешить Яндекс Метрике собирать сведения о посещении, действиях на сайте и записи взаимодействий (Вебвизор), чтобы мы понимали, какие песни и разделы интересны слушателям. <a href="privacy/">Подробнее</a>.</p><div class="tb-privacy-actions"><button type="button" class="tb-allow">Разрешить аналитику</button><button type="button" class="tb-decline">Не разрешать</button></div>';
   document.body.appendChild(panel);
 
   const show = () => { panel.hidden = false; };
