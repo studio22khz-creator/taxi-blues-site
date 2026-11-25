@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#071715">
+<title>Редактор сайта — TAXI BLUES</title>
+<style>
+:root{color-scheme:dark;--bg:#071715;--ink:#f2e6d5;--muted:#bcb6aa;--red:#b64c34;--teal:#0e3633}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 70% 18%,#123d39 0,transparent 42%),linear-gradient(135deg,#0d1816,#1a1917 65%,#0a2523);color:var(--ink);font:16px/1.65 system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}
+main{max-width:880px;margin:auto;padding:clamp(24px,7vw,96px) 22px}
+.brand{font-weight:900;font-size:1.3rem;letter-spacing:.055em;text-decoration:none;color:var(--ink)}.brand span{color:var(--red)}
+.eyebrow{text-transform:uppercase;color:#db9784;letter-spacing:.2em;font-size:.79rem;margin-top:4rem}
+h1{font-family:Impact,'Arial Narrow',sans-serif;font-size:clamp(2.8rem,8vw,5.4rem);font-weight:800;line-height:.98;margin:1rem 0}
+.lead{max-width:600px;font-size:1.1rem;color:var(--muted)}
+.action{display:inline-flex;background:var(--red);padding:14px 22px;color:white;font-weight:700;border-radius:3px;text-decoration:none;margin:22px 0;align-items:center;gap:10px}
+.action:hover{background:#d05e44}.action:focus-visible,a:focus-visible{outline:3px solid #f2d3a3;outline-offset:3px}
+.note{background:var(--teal);border-left:3px solid var(--red);padding:15px 19px;margin:22px 0 32px;color:#e5dfd1}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.step{border:1px solid #726252;background:#111d1b;padding:18px}.step strong{display:block;color:white;font-size:1.1rem}.step p{margin:8px 0;color:var(--muted);font-size:.95rem}
+a{color:#e4b49f}.fine{font-size:.88rem;color:var(--muted);margin-top:35px}
+</style>
+</head>
+<body><main>
+<a class="brand" href="../">TAXI <span>BLUES</span></a>
+<p class="eyebrow">Только для редакторов</p>
+<h1>Управление<br>сайтом</h1>
+<p class="lead">Добавляй фотографии, песни MP3, обложки, новости и ссылки на клипы через Pages CMS. Это отдельный защищённый редактор — на самом сайте пароли не хранятся.</p>
+<a class="action" href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer">Открыть панель управления ↗</a>
+<div class="note"><strong>Первый вход.</strong> Авторизуйся в Pages CMS через свой аккаунт GitHub <code>studio22khz-creator</code>. Если сервис попросит установить приложение Pages CMS, предоставь ему доступ к репозиторию <code>taxi-blues-site</code>. Затем открой ветку <code>main</code>.</div>
+<div class="steps">
+<div class="step"><strong>Фотографии</strong><p>Открой «Фотогалерея», добавь запись, загрузи JPG/PNG/WebP в поле изображения, задай подпись и сохрани.</p></div>
+<div class="step"><strong>Аудио</strong><p>Открой «Музыка / песни», добавь песню, выбери MP3 в поле аудио, укажи название, порядок и включи «Опубликовано».</p></div>
+<div class="step"><strong>Клипы и новости</strong><p>Для клипа вставь ссылку YouTube. Для новости добавь заголовок, дату и текст. После сохранения изменения попадут на сайт.</p></div>
+</div>
+<p class="fine">Рекомендуемые MP3 для сайта: 256–320 кбит/с, размер менее 25 МиБ. WAV-мастера здесь не публикуем. После сохранения в Pages CMS дождись успешной публикации Cloudflare. <a href="../">Вернуться на сайт</a>.</p>
+</main></body></html>
