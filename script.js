@@ -94,20 +94,48 @@
     const tracks=published(data);if(!tracks.length)return;
     document.getElementById('tracksEmpty').hidden=true;
     tracksList.replaceChildren();
-    tracks.forEach((track,i)=>{
+    const playable=tracks.filter(t=>safeMedia(t.audio));
+    let currentIndex=-1;
+    const buttons=[];
+    const playAt=index=>{
+      if(index<0||index>=playable.length)return;
+      currentIndex=index;
+      const track=playable[index];
+      const src=safeMedia(track.audio);
+      if(!src)return;
+      if(audio.getAttribute('src')!==src){audio.src=src;audio.load()}
+      audio.dataset.track=track.title||'Песня TAXI BLUES';
+      audio.hidden=false;
+      nowPlaying.textContent='Сейчас играет: '+audio.dataset.track;
+      buttons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.src===src)));
+      audio.play().catch(()=>{nowPlaying.textContent='Нажмите Play для воспроизведения: '+audio.dataset.track});
+    };
+    tracks.forEach(track=>{
       const li=document.createElement('li');
-      const sound=safeMedia(track.audio);const title=track.title||'Без названия';
+      const sound=safeMedia(track.audio), title=track.title||'Без названия';
       if(sound){
         const btn=document.createElement('button');btn.type='button';btn.className='track-play';
-        btn.textContent='▶ '+title;
-        btn.addEventListener('click',()=>{
-          if(audio.getAttribute('src')!==sound){audio.src=sound;audio.load()}
-          audio.dataset.track=title;audio.hidden=false;nowPlaying.textContent='Сейчас играет: '+title;
-          audio.play().catch(()=>{nowPlaying.textContent='Нажмите Play для воспроизведения: '+title});
-        });li.append(btn);
-      }else{putText(li,'span',title+' — аудио скоро появится')}
+        btn.textContent='▶ '+title;btn.dataset.src=sound;
+        btn.setAttribute('aria-pressed','false');
+        btn.addEventListener('click',()=>playAt(playable.findIndex(t=>safeMedia(t.audio)===sound)));
+        buttons.push(btn);li.append(btn);
+      }else{
+        putText(li,'span',title+' — аудио скоро появится');
+      }
       tracksList.append(li);
     });
+    if(playable.length>1){
+      const actions=document.createElement('div');actions.className='playlist-actions';
+      const prev=document.createElement('button');prev.type='button';prev.className='track-play';
+      prev.textContent='← Предыдущая';prev.addEventListener('click',()=>playAt(currentIndex>0?currentIndex-1:playable.length-1));
+      const next=document.createElement('button');next.type='button';next.className='track-play';
+      next.textContent='Следующая →';next.addEventListener('click',()=>playAt(currentIndex<0?0:(currentIndex+1)%playable.length));
+      actions.append(prev,next);audio.insertAdjacentElement('afterend',actions);
+      audio.addEventListener('ended',()=>{
+        if(currentIndex>=0 && currentIndex<playable.length-1)playAt(currentIndex+1);
+        else if(currentIndex===playable.length-1)nowPlaying.textContent='Альбом завершён: '+(playable[currentIndex].title||'TAXI BLUES');
+      });
+    }
   });
   const photoGrid=document.getElementById('galleryGrid');
   cmsFetch('photos').then(data=>{
